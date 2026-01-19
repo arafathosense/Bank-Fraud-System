@@ -1,312 +1,99 @@
-💳 HYBRID FRAUD DETECTION SYSTEM  
-================================
+# Bank Fraud System
 
-# 👨‍💻 Developed By: Shreeyansh Asati  
+The **Bank Fraud Detection & Decision System** is an end-to-end decision-support platform designed to detect and manage fraudulent digital payment transactions.
 
-🔗 Linkedin : https://www.linkedin.com/in/shreeyansh-asati-18shreey/
+Unlike conventional machine learning projects that focus only on prediction, this system is built to **support real-world banking decisions** by combining machine learning intelligence with rule-based logic and a structured risk evaluation process.
 
-🔗 GitHub : https://github.com/SHREEYANSHGIT/BANK-FRAUD-SYSTEM
+The system does not simply classify a transaction as fraudulent or legitimate; instead, it generates **actionable decisions** aligned with real banking workflows.
 
-🌐 Live App (Streamlit): https://bank-fraud-system-shreeyansh.streamlit.app/
 
-💾 Dataset link : https://www.kaggle.com/datasets/mtalaltariq/paysim-data
+## 🎯 Objectives
 
---------------------------------------------------
-📌 PROJECT OVERVIEW
---------------------------------------------------
-This project is a **real-world fraud detection decision system** built for
-digital payment transactions.
+The primary objectives of this project are:
 
-Unlike simple ML projects, this system combines:
+* Detect potentially fraudulent digital payment transactions
+* Reduce false positives through hybrid decision-making
+* Provide explainable and actionable transaction outcomes
+* Offer an interactive and user-friendly interface for analysis
 
-✅ Machine Learning (Random Forest)
 
-✅ Rule-Based Fraud Detection
+## 🧠 System Architecture
 
-✅ Risk Scoring & Decision Engine
+The system integrates four major components:
 
-✅ User-Friendly Streamlit Web App
+### 1. Machine Learning Layer
 
-The goal is NOT just to predict fraud, but to make **actionable decisions**:
-• Allow transaction  
-• Flag for manual review  
-• Block fraudulent transaction  
+* Uses a **Random Forest classifier** to learn complex patterns in transaction behavior
+* Handles non-linear relationships and feature interactions effectively
+* Provides a probability-based fraud prediction
 
---------------------------------------------------
-📊 DATASET INFORMATION
---------------------------------------------------
-📁 Dataset Used: PaySim – A Financial Mobile Money Simulator Dataset
+### 2. Rule-Based Fraud Detection
 
+* Implements predefined business rules commonly used in banking systems
+* Detects high-risk patterns such as abnormal transaction amounts or suspicious behavior
+* Acts as an additional safeguard beyond machine learning predictions
 
-📌 Description:
-PaySim is a synthetic dataset that simulates mobile money transactions
-based on real financial behavior.
+### 3. Risk Scoring & Decision Engine
 
-📌 Why PaySim?
-• Highly imbalanced fraud data (realistic)
-• Widely used in fraud research
-• Mimics real payment systems
+* Combines outputs from:
 
-<img width="678" height="470" alt="image" src="https://github.com/user-attachments/assets/355fc098-84a9-446d-a3d4-2df820bac0d6" />
+  * Machine Learning predictions
+  * Rule-based triggers
+* Produces a consolidated **risk score**
+* Maps the risk score to a final transaction decision
 
-🔗 Dataset Link:
-https://www.kaggle.com/datasets/ealaxi/paysim1
+### 4. Streamlit Web Application
 
---------------------------------------------------
-🤖 MACHINE LEARNING MODEL
---------------------------------------------------
+* Provides a clean and interactive user interface
+* Allows users to input transaction details
+* Displays prediction results, risk level, and final decision in real time
 
-**Model Used: XGBoost Classifier** 
 
-**📌 WHY XGBOOST OVER RANDOM FOREST (BUSINESS-DRIVEN DECISION)**
+## 🔍 Decision Outcomes
 
-Although Random Forest shows more balanced precision and recall, the primary objective in bank fraud detection is NOT balance — it is minimizing False Negatives.
+Each transaction is classified into **one of three actionable outcomes**:
 
---------------------------------------------------
-🔑 Core Principle in Banking Fraud Systems
---------------------------------------------------
- **Recall (Fraud) > Precision**
- 
- Missing a fraud (False Negative) is far more costly than flagging a legitimate transaction.
- 
---------------------------------------------------
-📊 Performance Insight
---------------------------------------------------
+* **Allow Transaction**
+  Low risk; transaction proceeds normally.
 
-Model         | Characteristics                   | Observations                                       |
---------------|-----------------------------------|----------------------------------------------------|
-Random Forest | More balanced precision and recall| ~150 False Negatives out of ~1600 fraud cases      |
-.             |                                   | Suitable for general classification problems       |
-XGBoost       | Extremely high recall             | Only ~18 False Negatives out of ~1600 fraud cases  |
-.             |                                   | Aggressively captures fraud patterns               |
-.             |                                   | Ideal when fraud miss cost is very high            |
+* **Flag for Manual Review**
+  Medium risk; transaction requires human verification.
 
+* **Block Transaction**
+  High risk; transaction is prevented to avoid potential fraud.
 
-**Note: at THRESHOLD 0.5 (default)
-Those ~18 missed fraud cases are business-critical.
-In real banking systems, even a single missed fraud can cause huge financial and reputational damage.**
+This decision-based approach mirrors real-world banking fraud prevention systems.
 
-***🏦 Why Banks Prefer High Recall Models***
 
-✔ Fraud loss > customer inconvenience
+## 🚀 Key Features
 
-✔ False positives can be manually reviewed
+* Hybrid fraud detection (ML + rules)
+* Risk-based decision making
+* Explainable transaction outcomes
+* Interactive web interface
+* Modular and extensible design
 
-✔ False negatives cause direct monetary loss
 
-✔ Regulatory pressure favors conservative fraud blocking
+## ⚠️ Disclaimer
 
-👉 Therefore, XGBoost is preferred despite lower precision, because:
+This project is developed for **educational and research purposes only**.
+It is **not intended for direct deployment in production banking systems** without further validation, regulatory compliance checks, and security audits.
 
-It maximizes fraud capture
 
-It minimizes undetected fraud
+## 📈 Future Improvements
 
-It aligns with real-world banking risk strategy
+* Integration of real-time transaction streams
+* Advanced explainability techniques (e.g., SHAP)
+* Adaptive rule learning
+* Model performance monitoring and drift detection
+* Support for additional ML models
 
+## 👤 Author
 
-<img width="691" height="451" alt="image" src="https://github.com/user-attachments/assets/7cc51dda-f4da-460a-be5d-c64a4f225c09" />
+**HOSEN ARAFAT**  
 
+**Software Engineer, China**  
 
---------------------------------------------------
-📈 MODEL PERFORMANCE
-----------------------------------------------------------------------------------------------------
-Metric              | Random forest         | XGboost        |
-------------------- | --------------------- | -------------- |  
-Precision (Fraud)   | ~80%                  | ~45%           |
-Recall (Fraud)      | ~90%  (priority)      | ~99%           |
-F1 scor             | ~80%                  | ~65%           |
-False Negatives     | Minimized             | ~maximum       |
+**GitHub:** https://github.com/arafathosense
 
-📌 why XGBOOST over RANDOM FOREST ?
-
-XGBoost more recall (99%) then Random Rorest 
---------------------------------------------------
-🧠 WHY ML + RULE-BASED (NOT ONLY ML)
---------------------------------------------------
-Machine Learning:
-✔ Finds hidden patterns
-✔ Learns probabilistic behavior
-
-BUT ML CANNOT:
-
-❌ Enforce financial laws
-
-❌ Guarantee ledger consistency
-
-❌ Catch logically impossible cases
-
-
-📌 Example:
-
-If sender balance is NOT reduced but receiver balance increases,
-ML alone may still say “Not Fraud”.
-
-✔ RULES catch this instantly.
-
-👉 Therefore, this system uses:
-ML = Risk probability  
-Rules = Absolute financial logic  
-
-This is how **real banks & fintech companies** operate.
---------------------------------------------------
-🗺️HEAT MAP (DEPENDENT AND INDEPENDENT PARAMETERS)
---------------------------------------------------
-<img width="785" height="665" alt="image" src="https://github.com/user-attachments/assets/69607b51-7d09-4b2a-b916-3dd62541af11" />
-
---------------------------------------------------
-⚙️ SYSTEM ARCHITECTURE
---------------------------------------------------
-Transaction Input
-
-      ↓
-Hard Fraud Rules (Ledger Validation)
-
-      ↓
-Risk Scoring Rules (Behavioral)
-
-      ↓
-ML Probability (Random Forest)
-
-      ↓
-Final Decision Engine
-
-      ↓
-✅ NOT FRAUD | ⚠️ FLAGGED | 🚫 FRAUD
-
-
---------------------------------------------------
-🧱 RULE-BASED LOGIC (Examples)
---------------------------------------------------
-🚫 HARD RULES (Immediate Block)
-
-• Amount > Sender balance
-
-• Sender balance not deducted correctly
-
-• Receiver credited incorrectly
-
-• Negative balances
-
-⚠️ RISK RULES (Score Based)
-
-• High-value transaction
-
-• Account drained >90%
-
-• Sender balance suddenly becomes zero
-
-• CASH_OUT transactions
-
---------------------------------------------------
-🖥️ WEB APPLICATION (STREAMLIT)
---------------------------------------------------
-Framework: Streamlit
-
-Features:
-
-✔ Interactive UI
-
-✔ Mandatory input validation
-
-✔ CASH_OUT logic handling
-
-✔ Real-time risk explanation
-
-✔ Deployed on Streamlit Cloud
-
---------------------------------------------------
-📁 Project Structure
---------------------------------------------------
-📂 Hybrid-Fraud-Detection
-- │
-- ├── 📓 main_model.ipynb              # Model training & evaluation
-- ├── 📦 rf_model.joblib               # Trained Random Forest model
-- ├── 📦 xgb_model.joblib              # Trained XGBoost model
-- ├── 🖥️ app.py                        # Streamlit application
-- ├── 📄 requirements.txt              # Required libraries
-- └── 📘 README.txt                    # Project documentation
-
---------------------------------------------------
-📚 LIBRARIES USED
---------------------------------------------------
-• Python
-
-• Pandas
-
-• NumPy
-
-• Scikit-learn
-
-• Joblib
-
-• Streamlit
-
-• OS (path handling)
-
---------------------------------------------------
-🚧 CHALLENGES FACED
---------------------------------------------------
-🔴 Highly imbalanced dataset
-🔴 ML misclassifying logically impossible cases
-🔴 Deployment issues on Streamlit Cloud
-🔴 Python version & dependency conflicts
-🔴 Integrating rules without breaking ML flow
-🔴 Making UI dynamic & realistic
-
-✔ All issues were solved using engineering-first thinking.
-
---------------------------------------------------
-🚀 DEPLOYMENT
---------------------------------------------------
-Platform: Streamlit Community Cloud  
-CI/CD: GitHub auto-deploy on push  
-
-Live App:
-🌐 https://bank-fraud-system-shreeyansh.streamlit.app/  
-
-<img width="734" height="859" alt="image" src="https://github.com/user-attachments/assets/8097ef4a-6b61-4162-8548-748fa28f0023" />
-
-
-
-
---------------------------------------------------
-🔮 FUTURE IMPROVEMENTS
---------------------------------------------------
-• Transaction velocity rules
-
-• User historical profiling
-
-• Rule weights configuration file
-
-• Audit logs (CSV / DB)
-
-• Explainability (SHAP)
-
-• REST API (FastAPI)
-
-• Docker deployment
-
---------------------------------------------------
-🎯 KEY TAKEAWAY
---------------------------------------------------
-This project demonstrates:
-
-✔ Real-world fraud system design
-
-✔ Hybrid ML + Rule architecture
-
-✔ Risk-based decision making
-
-✔ End-to-end ownership
-
-This is NOT just an ML model —
-this is a **production-style fraud detection system**.
-
---------------------------------------------------
-⭐ FINAL NOTE
---------------------------------------------------
-If you are reviewing this project as a recruiter or mentor:
-This work reflects **practical ML engineering**, not just academic modeling.
-
---------------------------------------------------
+**Researcher: Artificial Intelligence, Machine Learning, Deep Learning, Computer Vision, Image Processing**
