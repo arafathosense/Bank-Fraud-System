@@ -1,10 +1,10 @@
 # Bank Fraud System
 
-The **Bank Fraud Detection & Decision System** is an end-to-end decision-support platform designed to detect and manage fraudulent digital payment transactions.
+The **Bank Fraud Detection & Decision System** is an end-to-end decision-support platform designed to detect and manage fraudulent digital payment transactions. Unlike conventional machine learning projects that focus only on prediction, this system is built to **support real-world banking decisions** by combining machine learning intelligence with rule-based logic and a structured risk evaluation process. The system does not simply classify a transaction as fraudulent or legitimate; instead, it generates **actionable decisions** aligned with real banking workflows.
 
-Unlike conventional machine learning projects that focus only on prediction, this system is built to **support real-world banking decisions** by combining machine learning intelligence with rule-based logic and a structured risk evaluation process.
-
-The system does not simply classify a transaction as fraudulent or legitimate; instead, it generates **actionable decisions** aligned with real banking workflows.
+<img width="678" height="470" alt="image" src="https://github.com/user-attachments/assets/ef3b5b5a-c462-4d45-9c51-97fcd05ba48c" />
+<img width="785" height="665" alt="image" src="https://github.com/user-attachments/assets/bf0564a6-f619-48e0-8a20-cabf55c00477" />
+<img width="691" height="451" alt="image" src="https://github.com/user-attachments/assets/3a8d9b4f-5c11-4686-90fe-e7ccfaa852be" />
 
 
 ## 🎯 Objectives
